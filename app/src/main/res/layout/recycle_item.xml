@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@drawable/recycle_item_click">
+
+    <ImageView
+        android:id="@+id/recycle_item_img"
+        android:layout_width="@dimen/list_img_size"
+        android:layout_height="@dimen/list_img_size"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/list_img_left"
+        android:layout_marginStart="@dimen/list_img_left"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/recycle_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@id/recycle_item_img"
+        android:layout_toRightOf="@id/recycle_item_img"
+        android:singleLine="true"
+        android:text="我喜欢的音乐"
+        android:textColor="@color/recycle_item_title"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/recycle_item_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recycle_item_title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="6dp"
+        android:layout_toEndOf="@id/recycle_item_img"
+        android:layout_toRightOf="@id/recycle_item_img"
+        android:text="758首 播放1796次"
+        android:textColor="@color/recycle_item_subtitle"
+        android:textSize="12sp" />
+
+</RelativeLayout>

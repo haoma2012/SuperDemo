@@ -5,4 +5,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="nickname">haoma2012</string>
+    <string name="github_url">https://github.com/haoma2012/SuperDemo</string>
+    <string name="my_first_ui">网易我的界面</string>
+    <string name="my_second_ui">背景收缩</string>
+
+
 </resources>

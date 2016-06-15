@@ -1,10 +1,11 @@
 package com.example.superdemo;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,18 +13,46 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.example.superdemo.activity.PersonInfoActivity;
+import com.example.superdemo.ui.CircleImageView;
+import com.example.superdemo.ui.WaveHelper;
+import com.example.superdemo.ui.WaveView;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.wave)
+    WaveView wave;
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
+    @BindView(R.id.nav_view)
+    NavigationView navigationView;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
+
+    private int mBorderColor = Color.parseColor("#FF4081");
+    private int mBorderWidth = 1;
+    private WaveHelper mWaveHelper;
+
+    private View headView;
+    private CircleImageView mHeadImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
+
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,14 +61,38 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        assert drawer != null;
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //获取navigationView headview
+        headView = navigationView.getHeaderView(0);
+        mHeadImage = (CircleImageView) headView.findViewById(R.id.imageView);
+
+        mHeadImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //判断drawer是否打开进入个人信息页面
+                if (drawer.isDrawerOpen(GravityCompat.START)) {
+                    drawer.closeDrawer(GravityCompat.START);
+                }
+                startActivity(new Intent(MainActivity.this, PersonInfoActivity.class));
+            }
+        });
+
+//        wave.setWaveColor(
+//                Color.parseColor("#88b8f1ed"),
+//                Color.parseColor("#b8f1ed"));
+
+        wave.setBorder(mBorderWidth, mBorderColor);
+
+        wave.setShapeType(WaveView.ShapeType.SQUARE);
+
+        mWaveHelper = new WaveHelper(wave);
     }
 
     @Override
@@ -98,4 +151,17 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mWaveHelper.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mWaveHelper.cancel();
+    }
+
 }
