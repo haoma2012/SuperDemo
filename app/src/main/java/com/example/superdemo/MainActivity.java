@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.superdemo.activity.PersonInfoActivity;
+import com.example.superdemo.activity.WaPullToRefreshActivity;
+import com.example.superdemo.activity.WaUIActivity;
 import com.example.superdemo.ui.CircleImageView;
 import com.example.superdemo.ui.WaveHelper;
 import com.example.superdemo.ui.WaveView;
@@ -142,9 +144,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
-
+            startActivity(new Intent(this, WaUIActivity.class));
         } else if (id == R.id.nav_send) {
-
+        startActivity(new Intent(this, WaPullToRefreshActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -51,6 +51,7 @@ public class WangYiYunActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        CommonUtils.changeSystemBar(this,R.color.colorAccent,0);
         setContentView(R.layout.activity_wangyiyun);
         ButterKnife.bind(this);
 

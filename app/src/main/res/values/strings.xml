@@ -9,6 +9,8 @@
     <string name="github_url">https://github.com/haoma2012/SuperDemo</string>
     <string name="my_first_ui">网易我的界面</string>
     <string name="my_second_ui">背景收缩</string>
+    <string name="ultra_pull_to_refresh">使用Ultra Pull To Refresh</string>
+    <string name="line_chart">强大的图表</string>
 
 
 </resources>
