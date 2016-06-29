@@ -10,4 +10,6 @@
 
     <dimen name="list_img_size">40dp</dimen>
     <dimen name="list_img_left">16dp</dimen>
+    <dimen name="pie_chart_text1_size">42sp</dimen>
+    <dimen name="pie_chart_text2_size">16dp</dimen>
 </resources>

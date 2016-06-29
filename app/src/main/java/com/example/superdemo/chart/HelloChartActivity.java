@@ -32,7 +32,12 @@ import lecho.lib.hellocharts.model.Line;
 import lecho.lib.hellocharts.model.LineChartData;
 import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.view.AbstractChartView;
+import lecho.lib.hellocharts.view.BubbleChartView;
+import lecho.lib.hellocharts.view.ColumnChartView;
 import lecho.lib.hellocharts.view.LineChartView;
+import lecho.lib.hellocharts.view.PieChartView;
+import lecho.lib.hellocharts.view.PreviewColumnChartView;
+import lecho.lib.hellocharts.view.PreviewLineChartView;
 
 /**
  * HelloChartActivity 图表
@@ -159,28 +164,28 @@ public class HelloChartActivity extends AppCompatActivity {
                     break;
                 case 1:
                     // Column Chart;
-//                    intent = new Intent(getActivity(), ColumnChartActivity.class);
-//                    startActivity(intent);
+                    intent = new Intent(getActivity(), ColumnChartActivity.class);
+                    startActivity(intent);
                     break;
                 case 2:
                     // Pie Chart;
-//                    intent = new Intent(getActivity(), PieChartActivity.class);
-//                    startActivity(intent);
+                    intent = new Intent(getActivity(), PieChartActivity.class);
+                    startActivity(intent);
                     break;
                 case 3:
                     // Bubble Chart;
-//                    intent = new Intent(getActivity(), BubbleChartActivity.class);
-//                    startActivity(intent);
+                    intent = new Intent(getActivity(), BubbleChartActivity.class);
+                    startActivity(intent);
                     break;
                 case 4:
                     // Preview Line Chart;
-//                    intent = new Intent(getActivity(), PreviewLineChartActivity.class);
-//                    startActivity(intent);
+                    intent = new Intent(getActivity(), PreviewLineChartActivity.class);
+                    startActivity(intent);
                     break;
                 case 5:
                     // Preview Column Chart;
-//                    intent = new Intent(getActivity(), PreviewColumnChartActivity.class);
-//                    startActivity(intent);
+                    intent = new Intent(getActivity(), PreviewColumnChartActivity.class);
+                    startActivity(intent);
                     break;
                 case 6:
                     // Combo Chart;
@@ -276,8 +281,38 @@ public class HelloChartActivity extends AppCompatActivity {
                 case LINE_CHART:
                     chart = new LineChartView(getContext());
                     viewHolder.chartLayout.addView(chart);
+                    break;
+                case COLUMN_CHART:
+                    chart = new ColumnChartView(getContext());
+                    viewHolder.chartLayout.addView(chart);
+                    break;
+                case PIE_CHART:
+                    chart = new PieChartView(getContext());
+                    viewHolder.chartLayout.addView(chart);
+                    break;
+                case BUBBLE_CHART:
+                    chart = new BubbleChartView(getContext());
+                    viewHolder.chartLayout.addView(chart);
+                    break;
+                case PREVIEW_LINE_CHART:
+                    chart = new PreviewLineChartView(getContext());
+                    viewHolder.chartLayout.addView(chart);
+                    break;
+                case PREVIEW_COLUMN_CHART:
+                    chart = new PreviewColumnChartView(getContext());
+                    viewHolder.chartLayout.addView(chart);
+                    break;
+                default:
+                    chart = null;
+                    viewHolder.chartLayout.setVisibility(View.GONE);
+                    break;
             }
 
+            if (null != chart) {
+                chart.setInteractive(false);// Disable touch handling for chart on the ListView.
+            }
+            viewHolder.text1.setText(item.text1);
+            viewHolder.text2.setText(item.text2);
             return convertView;
         }
 

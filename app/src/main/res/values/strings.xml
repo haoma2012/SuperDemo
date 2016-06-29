@@ -11,6 +11,17 @@
     <string name="my_second_ui">背景收缩</string>
     <string name="ultra_pull_to_refresh">使用Ultra Pull To Refresh</string>
     <string name="line_chart">强大的图表</string>
+    <string name="weixin_string">仿微信朋友圈</string>
 
+    <!-- 图片浏览 -->
+    <string name="only_choose_num">超出可选图片张数</string>
+    <string name="finish">完成</string>
+    <string name="invalidSD">sdcard无效或没有插入！</string>
+    <string name="photo">选择相册</string>
+    <string name="album">相册</string>
+    <string name="preview">预览</string>
+    <string name="unfinished">完成</string>
+    <string name="camera_cancel">取消</string>
+    <string name="no_photo">相册没有图片</string>
 
 </resources>

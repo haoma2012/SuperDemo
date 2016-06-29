@@ -19,9 +19,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/line_chart"
-                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
                 android:textSize="16sp" />
 
+            <Button
+                android:id="@+id/weixin_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/weixin_string"
+                android:layout_below="@id/chart_btn"
+                android:layout_centerHorizontal="true"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 

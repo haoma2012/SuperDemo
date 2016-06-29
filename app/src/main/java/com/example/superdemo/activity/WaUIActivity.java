@@ -10,6 +10,7 @@ import android.widget.Button;
 
 import com.example.superdemo.R;
 import com.example.superdemo.chart.HelloChartActivity;
+import com.example.superdemo.weixin.WeiQuanActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,6 +25,8 @@ public class WaUIActivity extends AppCompatActivity {
     Toolbar mToolbar;
     @BindView(R.id.chart_btn)
     Button mChartBtn;
+    @BindView(R.id.weixin_btn)
+    Button mWeixinBtn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,8 +52,16 @@ public class WaUIActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick(R.id.chart_btn)
-    public void onClick() {
-        startActivity(new Intent(this,HelloChartActivity.class));
+    @OnClick({R.id.chart_btn,R.id.weixin_btn})
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.chart_btn:
+                startActivity(new Intent(this,HelloChartActivity.class));
+                break;
+            case R.id.weixin_btn:
+                startActivity(new Intent(this,WeiQuanActivity.class));
+                break;
+        }
+
     }
 }
