@@ -3,6 +3,13 @@ package com.example.superdemo;
 import android.app.Activity;
 import android.app.Application;
 
+import com.example.superdemo.utils.CrashHandler;
+import com.example.superdemo.utils.FileUtils;
+import com.example.superdemo.utils.ToastUtils;
+import com.orhanobut.logger.LogLevel;
+import com.orhanobut.logger.Logger;
+import com.squareup.leakcanary.LeakCanary;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,6 +23,8 @@ public class MyApplication extends Application {
     static List<Activity> mList = new LinkedList<>();
     //为了实现每次使用该类时不创建新的对象而创建的静态对象
     private static MyApplication instance;
+    public static String cacheDir;
+    public static ToastUtils myToast;
 
     public static MyApplication getInstance() {
         if (null == instance) {
@@ -31,8 +40,20 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        myToast = new ToastUtils(getApplicationContext());
+        Logger.init().logLevel(LogLevel.FULL);
+        LeakCanary.install(this);
+        //初始化日志输出工具
+        CrashHandler.init(new CrashHandler(getApplicationContext()));
+        /**
+         * 如果存在SD卡则将缓存写入SD卡,否则写入手机内存
+         */
+        if (getApplicationContext().getExternalCacheDir() != null && FileUtils.isExistSDCard()) {
+            cacheDir = getApplicationContext().getExternalCacheDir().toString();
+        } else {
+            cacheDir = getApplicationContext().getCacheDir().toString();
+        }
     }
-
 
     // add Activity
     public void addActivity(Activity activity) {

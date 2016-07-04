@@ -10,4 +10,8 @@
     <color name="white">#ffffff</color>
     <color name="recycle_item_title">#000000</color>
     <color name="recycle_item_subtitle">#DbDbDb</color>
+    <color name="theme_color">#2BB1E9</color>
+    <color name="primary_background_color">#F0F0F0</color>
+    <color name="list_divider">#4f000000</color>
+    <color name="black">#000000</color>
 </resources>

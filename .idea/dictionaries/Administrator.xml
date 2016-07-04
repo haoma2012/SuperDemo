@@ -7,11 +7,16 @@
       <w>grida</w>
       <w>haoma</w>
       <w>iten</w>
+      <w>leakcanary</w>
       <w>linechart</w>
+      <w>logto</w>
       <w>quan</w>
+      <w>recyclerview</w>
       <w>scrollgridview</w>
       <w>subcolumns</w>
+      <w>swipebacklayout</w>
       <w>ulrefresh</w>
+      <w>webview</w>
     </words>
   </dictionary>
 </component>

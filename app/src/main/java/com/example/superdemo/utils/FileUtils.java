@@ -85,4 +85,12 @@ public class FileUtils {
 		return true;
 	}
 
+	public static boolean isExistSDCard(){
+		if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 }
