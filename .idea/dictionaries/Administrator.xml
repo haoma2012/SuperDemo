@@ -4,9 +4,11 @@
       <w>choosebt</w>
       <w>colordrawable</w>
       <w>columnchart</w>
+      <w>databinding</w>
       <w>grida</w>
       <w>haoma</w>
       <w>iten</w>
+      <w>lastname</w>
       <w>leakcanary</w>
       <w>linechart</w>
       <w>logto</w>
@@ -14,6 +16,7 @@
       <w>recyclerview</w>
       <w>scrollgridview</w>
       <w>subcolumns</w>
+      <w>superdemo</w>
       <w>swipebacklayout</w>
       <w>ulrefresh</w>
       <w>webview</w>

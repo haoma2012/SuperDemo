@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.example.superdemo.model.User" />
+
+        <variable
+            name="handlers"
+            type="com.example.superdemo.databind.handlers.MyHandlers" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/main_top" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/material_40dp"
+            android:gravity="center"
+            android:onClick="@{handlers.onClickName}"
+            android:text="@{user.name}" />
+
+        <TextView
+            android:id="@+id/lastname"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/material_40dp"
+            android:layout_marginTop="@dimen/material_2dp"
+            android:gravity="center"
+            android:text="@{user.lastname}" />
+
+        <!--<TextView-->
+        <!--android:id="@+id/age"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/material_40dp"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_marginTop="@dimen/material_2dp"-->
+        <!--android:text="@{" " + user.age}"/>-->
+
+    </LinearLayout>
+</layout>

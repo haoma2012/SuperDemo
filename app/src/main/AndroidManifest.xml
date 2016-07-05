@@ -152,6 +152,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.Translucent" />
 
+        <activity android:name=".databind.DataBindingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>
