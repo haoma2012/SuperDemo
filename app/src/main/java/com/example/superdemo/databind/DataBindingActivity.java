@@ -1,14 +1,8 @@
 package com.example.superdemo.databind;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-
-import com.example.superdemo.R;
-import com.example.superdemo.databind.handlers.MyHandlers;
-import com.example.superdemo.databinding.ActivityDatabindingBinding;
-import com.example.superdemo.model.User;
 
 /**
  * DataBinding
@@ -31,10 +25,10 @@ public class DataBindingActivity extends AppCompatActivity {
 //        setContentView(R.layout.main_top);
 //        ButterKnife.bind(this);
 
-        ActivityDatabindingBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_databinding);
+//        ActivityDatabindingBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_databinding);
 
-        User user = new User("yang","dehao",25);
-        binding.setUser(user);
-        binding.setHandlers(new MyHandlers(getApplicationContext()));
+//        User user = new User("yang","dehao",25);
+//        binding.setUser(user);
+//        binding.setHandlers(new MyHandlers(getApplicationContext()));
     }
 }

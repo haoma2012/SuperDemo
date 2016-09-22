@@ -7,15 +7,12 @@ import android.widget.Toast;
  * Created by Administrator on 2016/7/1.
  * ToastUtils
  */
-public class ToastUtils extends Toast{
+public class ToastUtils {
 
-    private Toast mToast;
+    public static Toast mToast;
 
-    public ToastUtils(Context context) {
-        super(context);
-    }
-    public void showToast(String text,Context mContext) {
-        if(mToast == null) {
+    public static void showToast(String text, Context mContext) {
+        if (mToast == null) {
             mToast = Toast.makeText(mContext, text, Toast.LENGTH_SHORT);
         } else {
             mToast.setText(text);
@@ -24,9 +21,10 @@ public class ToastUtils extends Toast{
         mToast.show();
     }
 
-    public void cancelToast() {
+    public static void cancelToast() {
         if (mToast != null) {
             mToast.cancel();
+            mToast = null;
         }
     }
 }

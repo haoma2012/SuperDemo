@@ -1,6 +1,5 @@
 package com.example.superdemo.utils;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
@@ -17,7 +16,7 @@ import java.io.IOException;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 
-public class BitmapCache extends Activity {
+public class BitmapCache {
 
 	public Handler h = new Handler();
 	public final String TAG = getClass().getSimpleName();

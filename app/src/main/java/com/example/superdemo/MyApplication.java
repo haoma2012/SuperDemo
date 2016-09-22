@@ -5,7 +5,8 @@ import android.app.Application;
 
 import com.example.superdemo.utils.CrashHandler;
 import com.example.superdemo.utils.FileUtils;
-import com.example.superdemo.utils.ToastUtils;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.orhanobut.logger.LogLevel;
 import com.orhanobut.logger.Logger;
 import com.squareup.leakcanary.LeakCanary;
@@ -24,7 +25,7 @@ public class MyApplication extends Application {
     //为了实现每次使用该类时不创建新的对象而创建的静态对象
     private static MyApplication instance;
     public static String cacheDir;
-    public static ToastUtils myToast;
+//    public static ToastUtils myToast;
 
     public static MyApplication getInstance() {
         if (null == instance) {
@@ -40,7 +41,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        myToast = new ToastUtils(getApplicationContext());
+//        myToast = new ToastUtils(getApplicationContext());
         Logger.init().logLevel(LogLevel.FULL);
         LeakCanary.install(this);
         //初始化日志输出工具
@@ -53,6 +54,11 @@ public class MyApplication extends Application {
         } else {
             cacheDir = getApplicationContext().getCacheDir().toString();
         }
+
+        ImagePipelineConfig config = ImagePipelineConfig.newBuilder(this)
+
+                .build();
+        Fresco.initialize(this);
     }
 
     // add Activity
